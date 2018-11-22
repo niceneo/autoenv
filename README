@@ -1,0 +1,29 @@
+
+作者地址:
+https://github.com/kennethreitz/autoenv.git
+
+使用例子: Centos7 + 编译安装py3
+
+1、建立python 虚拟环境
+cd /datadisk/opt
+
+/usr/local/python3.7/bin/python -m venv py3     # 会在opt目录下初始化py3环境目录
+
+source /datadisk/opt/py3/bin/activate    # 此时进入到此虚拟环境中
+
+2、自动载入python 虚拟环境配置
+cd /datadisk/opt
+
+git clone https://github.com/kennethreitz/autoenv.git
+
+echo 'source /datadisk/opt/autoenv/activate.sh' >> ~/.bashrc
+
+source ~/.bashrc
+
+3、准备项目目录
+mkdir /datadisk/opt/superman   # 需要虚拟py环境运行的py项目根目录
+
+echo "source /datadisk/opt/py3/bin/activate" > /datadisk/opt/superman/.env
+
+4、验证
+此时进入到superman目录，会自动加载/datadisk/opt/py3这虚拟的python环境了。pip安装包都会在此目录下。
